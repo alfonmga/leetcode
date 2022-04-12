@@ -14,8 +14,8 @@ func LengthOfLongestSubstring(s string) int {
 
 		_, found := encounterChars[c]
 		if found {
-			encounterChars = make(map[string]bool) // nuke dict
-			currentStreakCounter = 0               // reset streak counter
+			encounterChars = make(map[string]bool)
+			currentStreakCounter = 0
 			startSCharPosIdx += 1
 			i = startSCharPosIdx
 			continue
