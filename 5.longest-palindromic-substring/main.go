@@ -29,13 +29,10 @@ func LongestPalindrome(s string) string {
 	}
 	sRuneChars := []rune(s)
 	longestPalindrome := []rune{sRuneChars[0]}
-	for cIdx, c := range sRuneChars {
-		numCharsAfterCurrentChar := len(sRuneChars) - (cIdx + 1)
-		longestPalindromeCandidate := []rune{c}
-		for i := 1; i <= numCharsAfterCurrentChar; i++ {
-			nextCharIdx := cIdx + i
-			nextChar := sRuneChars[nextCharIdx]
-			longestPalindromeCandidate = append(longestPalindromeCandidate, nextChar)
+	for x := 0; x < len(sRuneChars); x++ {
+		longestPalindromeCandidate := []rune{sRuneChars[x]}
+		for y := 1; y <= len(sRuneChars)-(x+1); y++ {
+			longestPalindromeCandidate = append(longestPalindromeCandidate, sRuneChars[x+y])
 			if isRunePalindrome(longestPalindromeCandidate) && len(longestPalindromeCandidate) > len(longestPalindrome) {
 				longestPalindrome = longestPalindromeCandidate
 			}
