@@ -25,5 +25,4 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 			}
 		})
 	}
-
 }
