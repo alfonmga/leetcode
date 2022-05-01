@@ -11,47 +11,40 @@ func ThreeSum(nums []int) [][]int {
 	}
 
 	triplets := [][]int{}
-	for i, num := range nums {
-		if len(nums) < i+1 {
-			break
-		}
-
-		jk := []int{}
-		for jkIdx := 0; jkIdx < len(nums); jkIdx++ {
-			if jkIdx == i {
+	for i, iV := range nums {
+		for j, jV := range nums {
+			if j == i {
 				continue
 			}
-
-			if len(jk) == 0 {
-				jk = append(jk, nums[jkIdx])
-			} else {
-				jk = []int{nums[jkIdx], jk[0]}
-			}
-
-			if len(jk) == 2 {
-				threeSum := num + jk[0] + jk[1]
-				if threeSum == 0 {
-					threeSumSlice := []int{num, jk[0], jk[1]}
-					sort.Ints(threeSumSlice)
-					triplets = append(triplets, threeSumSlice)
+			for k, kV := range nums {
+				if k == i || k == j {
+					continue
 				}
+
+				threeSum := iV + jV + kV
+				if threeSum == 0 {
+					_threeSumSlice := []int{iV, jV, kV}
+					sort.Ints(_threeSumSlice)
+					triplets = append(triplets, _threeSumSlice)
+				}
+
 			}
 		}
 	}
 
-	uniqueTriplets := [][]int{}
+	finalTriplets := [][]int{}
 	for _, v := range triplets {
 		added := false
-		for _, jV := range uniqueTriplets {
+		for _, jV := range finalTriplets {
 			if v[0] == jV[0] && v[1] == jV[1] && v[2] == jV[2] {
 				added = true
 				break
 			}
 		}
 		if !added {
-			uniqueTriplets = append(uniqueTriplets, v)
+			finalTriplets = append(finalTriplets, v)
 		}
 	}
 
-	return uniqueTriplets
+	return finalTriplets
 }
