@@ -22,14 +22,14 @@ func TestRemoveNthFromEnd(t *testing.T) {
 		inputNodesVals := listNodesValueToArrayInt(tt.input.head)
 		t.Run(fmt.Sprintf("%v %d", inputNodesVals, tt.input.n), func(t *testing.T) {
 			actual := RemoveNthFromEnd(tt.input.head, tt.input.n)
-			actualNodesVals := listNodesValueToArrayInt(actual)
-			ansNodesVals := listNodesValueToArrayInt(tt.ans)
-			if len(actualNodesVals) != len(ansNodesVals) {
-				t.Fatalf("got %v, want %v", actualNodesVals, ansNodesVals)
+			actualV := listNodesValueToArrayInt(actual)
+			ansV := listNodesValueToArrayInt(tt.ans)
+			if len(actualV) != len(ansV) {
+				t.Fatalf("got %v, want %v", actualV, ansV)
 			}
-			for i := 0; i < len(ansNodesVals); i++ {
-				if actualNodesVals[i] != ansNodesVals[i] {
-					t.Fatalf("got %v, want %v", actualNodesVals, ansNodesVals)
+			for i := 0; i < len(ansV); i++ {
+				if actualV[i] != ansV[i] {
+					t.Fatalf("got %v, want %v", actualV, ansV)
 				}
 			}
 		})
