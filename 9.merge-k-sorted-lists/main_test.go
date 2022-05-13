@@ -12,6 +12,7 @@ func TestMergeKList(t *testing.T) {
 		answer *ListNode
 	}{
 		{input: []*ListNode{createListNodeFromSliceInt([]int{1, 4, 5}), createListNodeFromSliceInt([]int{1, 3, 4}), createListNodeFromSliceInt([]int{2, 6})}, answer: createListNodeFromSliceInt([]int{1, 1, 2, 3, 4, 4, 5, 6})},
+		{input: []*ListNode{}, answer: &ListNode{}},
 	}
 	for tcIdx, tc := range testcases {
 		t.Run(fmt.Sprintf("#%d", tcIdx), func(t *testing.T) {

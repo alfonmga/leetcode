@@ -8,6 +8,10 @@ type ListNode struct {
 }
 
 func MergeKLists(lists []*ListNode) *ListNode {
+	if len(lists) == 0 {
+		return &ListNode{}
+	}
+
 	var valuesFromLists []int
 	for i := 0; i < len(lists); i++ {
 		n := lists[i]
